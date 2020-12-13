@@ -20,7 +20,7 @@ require (
 	github.com/veritrans/go-midtrans v0.0.0-20201123044117-af6ac109e8d8
 	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897
 	golang.org/x/sys v0.0.0-20201106081118-db71ae66460a // indirect
-	google.golang.org/protobuf v1.25.0
+	google.golang.org/protobuf v1.25.0 // indirect
 	gopkg.in/yaml.v2 v2.3.0 // indirect
 	gorm.io/driver/mysql v1.0.3
 	gorm.io/driver/sqlite v1.1.3 // indirect
