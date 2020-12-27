@@ -13,8 +13,10 @@
                         <th>Nama</th>
                         <th>Email</th>
                         <th>Pekerjaan</th>
+                        <th>Telfon</th>
+                        <th>NPWP</th>
                         <th></th>
-                        
+
                     </tr>
                 </Thead>
                 <tbody>
@@ -24,6 +26,8 @@
                         <td>{{.Nama}}</td>
                         <td>{{.Email}}</td>
                         <td>{{.Pekerjaan}}</td>
+                        <td>{{.Telfon}}</td>
+                        <td>{{.Npwp}}</td>
                         <td><a href="/users/edit/{{ .ID }}"><i class="fa fa-edit"></i></a></td>
                         <td><a href="/users/avatar/{{ .ID }}"><i class="fa fa-camera"></i></a></td>
                     </tr>
@@ -33,4 +37,4 @@
         </div>
     </div>
 
-{{end}}
+    {{end}}

@@ -4,6 +4,8 @@ type RegisterUserInput struct {
 	Nama      string `json:"nama" binding:"required"`
 	Pekerjaan string `json:"pekerjaan" binding:"required"`
 	Email     string `json:"email" binding:"required,email"`
+	Telfon    string `json:"telfon" binding:"required"`
+	Npwp      string `json:"npwp" binding:"required"`
 	Password  string `json:"password" binding:"required"`
 }
 

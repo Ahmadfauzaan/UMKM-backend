@@ -7,14 +7,20 @@
         <table class="table mb-0">
             <thead class="thead-light">
                 <tr>
-                    <th>Nama Campaign</th>
-                    <th>Amount</th>
-                    <th>Status</th>
+                    <th>Investor ID</th>
+                    <th>Nama Investor</th>
+                    <th>Project UMKM ID</th>
+                    <th>Nama Project UMKM yang didanai</th>
+                    <th>Transaksi</th>
+                    <th>Status Transaksi</th>
                 </tr>
             </thead>
             <tbody>
                 {{ range .transactions }}
                 <tr>
+                    <td>{{ .UserID }}</td>
+                    <td>{{ .User.Nama }}</td>
+                    <td>{{ .CampaignID }}</td>
                     <td>{{ .Campaign.Nama }}</td>
                     <td>{{ .AmountFormatIDR }}</td>
                     <td>{{ .Status }}</td>

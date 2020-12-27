@@ -7,6 +7,8 @@ type User struct {
 	Nama           string
 	Pekerjaan      string
 	Email          string
+	Telfon         string
+	Npwp           string
 	PasswordHash   string
 	AvatarFileName string
 	Role           string
