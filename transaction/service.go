@@ -26,7 +26,6 @@ func NewService(repository Repository, campaignRepository campaign.Repository, p
 }
 
 func (s *service) GetTransactionsByCampaignID(input GetCampaignTransactionsInput) ([]Transaction, error) {
-
 	campaign, err := s.campaignRepository.FindByID(input.ID)
 	if err != nil {
 		return []Transaction{}, err
@@ -40,6 +39,7 @@ func (s *service) GetTransactionsByCampaignID(input GetCampaignTransactionsInput
 	if err != nil {
 		return transactions, err
 	}
+
 	return transactions, nil
 }
 
@@ -56,7 +56,7 @@ func (s *service) CreateTransaction(input CreateTransactionInput) (Transaction, 
 	transaction.CampaignID = input.CampaignID
 	transaction.Amount = input.Amount
 	transaction.UserID = input.User.ID
-	transaction.Status = "Pending"
+	transaction.Status = "pending"
 
 	newTransaction, err := s.repository.Save(transaction)
 	if err != nil {
@@ -82,6 +82,7 @@ func (s *service) CreateTransaction(input CreateTransactionInput) (Transaction, 
 
 	return newTransaction, nil
 }
+
 func (s *service) ProcessPayment(input TransactionNotificationInput) error {
 	transaction_id, _ := strconv.Atoi(input.OrderID)
 
@@ -90,7 +91,7 @@ func (s *service) ProcessPayment(input TransactionNotificationInput) error {
 		return err
 	}
 
-	if input.PaymentType == "credit_cart" && input.TransactionStatus == "capture" && input.FraudStatus == "accept" {
+	if input.PaymentType == "credit_card" && input.TransactionStatus == "capture" && input.FraudStatus == "accept" {
 		transaction.Status = "paid"
 	} else if input.TransactionStatus == "settlement" {
 		transaction.Status = "paid"
@@ -117,8 +118,8 @@ func (s *service) ProcessPayment(input TransactionNotificationInput) error {
 			return err
 		}
 	}
-	return nil
 
+	return nil
 }
 
 func (s *service) GetAllTransactions() ([]Transaction, error) {

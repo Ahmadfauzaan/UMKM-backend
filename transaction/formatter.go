@@ -1,6 +1,8 @@
 package transaction
 
-import "time"
+import (
+	"time"
+)
 
 type CampaignTransactionFormatter struct {
 	ID        int       `json:"id"`
@@ -23,6 +25,7 @@ func FormatCampaignTransactions(transactions []Transaction) []CampaignTransactio
 	if len(transactions) == 0 {
 		return []CampaignTransactionFormatter{}
 	}
+
 	var transactionsFormatter []CampaignTransactionFormatter
 
 	for _, transaction := range transactions {
@@ -62,14 +65,15 @@ func FormatUserTransaction(transaction Transaction) UserTransactionFormatter {
 	}
 
 	formatter.Campaign = campaignFormatter
+
 	return formatter
 }
 
 func FormatUserTransactions(transactions []Transaction) []UserTransactionFormatter {
-
 	if len(transactions) == 0 {
 		return []UserTransactionFormatter{}
 	}
+
 	var transactionsFormatter []UserTransactionFormatter
 
 	for _, transaction := range transactions {
