@@ -1,22 +1,20 @@
 {{ define "content" }}
 
-<h2 class="mb-4">Data Project UMKM</h2>
-
-<a href="/campaigns/new" class="btn btn-primary mb-3"><i class="fa fa-plus" ></i>  New Project UMKM</a>
+<h2 class="mb-4">Data UMKM</h2>
 
 <div class="card mb-4">
     <div class="card-body">
         <table class="table mb-0">
             <thead class="thead-light">
                 <tr>
-                    <th>User Project ID</th>
-                    <th>Nama User</th>
-                    <th>project id</th>
-                    <th>Foto Project UMKM</th>
-                    <th>Nama Project UMKM</th>
+                    <th>ID UMKM</th>
+                    <th>Nama Pemilik UMKM</th>
+                    <th>Foto Merk UMKM</th>
+                    <th>Merk UMKM</th>
                     <th>Short Description</th>
-                    <th>Dana Yang Dibutuhkan</th>
-                    <th></th>
+                    <th>Investor Yang Sudah Menginvestasikan UMKM Ini </th>
+                    <th>Dana Investasi Yang Dibutuhkan</th>
+                    <th>Dana Yang Sudah Di Investasikan</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -24,20 +22,18 @@
             <tbody>
                 {{ range .campaigns }}
                 <tr>
-                    <td>{{ .UserID }}</td>
-                    <td>{{ .User.Nama }}</td>
                     <td>{{ .ID }}</td>
+                    <td>{{ .User.Nama }}</td>
                     <td>
                         {{ if .CampaignImages }}
                         <img width="60" src="/{{ (index .CampaignImages 0).FileName }}" class="img-fluid img-thumbnail"> {{ end }}
                     </td>
                     <td>{{ .Nama }}</td>
                     <td>{{ .ShortDescription }}</td>
+                    <td>{{ .BackerCount }}</td>
                     <td>{{ .GoalAmountFormatIDR }}</td>
-                    <td><a href="/campaigns/edit/{{ .ID }}"><i class="fa fa-edit"></i><a></td>
-                    <td><a href="/campaigns/image/{{ .ID }}"><i class="fa fa-camera"></i><a></td>
-                    <td><a href="/campaigns/show/{{ .ID }}"><i class="fa fa-search"></i><a></td>
-                    <td><a href="#"><i class="fa fa-window-close"></i><a></td>
+                    <td>{{ .CurrentAmountFormatIDR }}</td>
+
                 </tr>
                 {{ end }}
             </tbody>

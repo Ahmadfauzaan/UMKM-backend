@@ -2,7 +2,7 @@ package user
 
 type RegisterUserInput struct {
 	Nama      string `json:"nama" binding:"required"`
-	Pekerjaan string `json:"pekerjaan" binding:"required"`
+	PeranUser string `json:"peran_user" binding:"required"`
 	Email     string `json:"email" binding:"required,email"`
 	Telfon    string `json:"telfon" binding:"required"`
 	Npwp      string `json:"npwp" binding:"required"`
@@ -21,7 +21,7 @@ type CheckEmailInput struct {
 type FormCreateUserInput struct {
 	Nama      string `form:"nama" binding:"required"`
 	Email     string `form:"email" binding:"required,email"`
-	Pekerjaan string `form:"pekerjaan" binding:"required"`
+	PeranUser string `json:"peran_user" binding:"required"`
 	Password  string `form:"password" binding:"required"`
 	Error     error
 }
@@ -30,6 +30,6 @@ type FormUpdateUserInput struct {
 	ID        int
 	Nama      string `form:"nama" binding:"required"`
 	Email     string `form:"email" binding:"required,email"`
-	Pekerjaan string `form:"pekerjaan" binding:"required"`
+	PeranUser string `json:"peran_user" binding:"required"`
 	Error     error
 }

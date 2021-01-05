@@ -56,7 +56,7 @@ func (s *service) CreateTransaction(input CreateTransactionInput) (Transaction, 
 	transaction.CampaignID = input.CampaignID
 	transaction.Amount = input.Amount
 	transaction.UserID = input.User.ID
-	transaction.Status = "pending"
+	transaction.Status = "Dana Investasi Belum Diterima"
 
 	newTransaction, err := s.repository.Save(transaction)
 	if err != nil {
@@ -92,11 +92,11 @@ func (s *service) ProcessPayment(input TransactionNotificationInput) error {
 	}
 
 	if input.PaymentType == "credit_card" && input.TransactionStatus == "capture" && input.FraudStatus == "accept" {
-		transaction.Status = "paid"
+		transaction.Status = "Dana Investasi Sudah Diterima"
 	} else if input.TransactionStatus == "settlement" {
-		transaction.Status = "paid"
+		transaction.Status = "Dana Investasi Sudah Diterima"
 	} else if input.TransactionStatus == "deny" || input.TransactionStatus == "expire" || input.TransactionStatus == "cancel" {
-		transaction.Status = "cancelled"
+		transaction.Status = "Dana Investasi Dibatalkan"
 	}
 
 	updatedTransaction, err := s.repository.Update(transaction)

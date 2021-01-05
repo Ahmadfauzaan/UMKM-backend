@@ -28,7 +28,7 @@ func (s *service) RegisterUser(input RegisterUserInput) (User, error) {
 	user := User{}
 	user.Nama = input.Nama
 	user.Email = input.Email
-	user.Pekerjaan = input.Pekerjaan
+	user.PeranUser = input.PeranUser
 	user.Telfon = input.Telfon
 	user.Npwp = input.Npwp
 
@@ -131,7 +131,7 @@ func (s *service) UpdateUser(input FormUpdateUserInput) (User, error) {
 
 	user.Nama = input.Nama
 	user.Email = input.Email
-	user.Pekerjaan = input.Pekerjaan
+	user.PeranUser = input.PeranUser
 
 	updatedUser, err := s.repository.Update(user)
 	if err != nil {

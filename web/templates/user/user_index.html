@@ -1,8 +1,7 @@
 {{define "content"}}
 <div class="content p-4">
-    <h2 class="mb-4">Data Pengguna</h2>
+    <h2 class="mb-4">Data User</h2>
 
-    <a href="/users/new" class="btn btn-primary m-3"><i class="fa fa-plus"></i> New User</a>
 
     <div class="card mb-4">
         <div class="card-body">
@@ -12,7 +11,7 @@
                         <th></th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>Pekerjaan</th>
+                        <th></th>
                         <th>Telfon</th>
                         <th>NPWP</th>
                         <th></th>
@@ -25,12 +24,9 @@
                         <td><img class="img-fluid img-thumbnail" src="{{ .AvatarFileName }}" width="60"></td>
                         <td>{{.Nama}}</td>
                         <td>{{.Email}}</td>
-                        <td>{{.Pekerjaan}}</td>
+                        <td>{{.PeranUser}}</td>
                         <td>{{.Telfon}}</td>
                         <td>{{.Npwp}}</td>
-                        <td><a href="/users/edit/{{ .ID }}"><i class="fa fa-edit"></i></a></td>
-                        <td><a href="/users/avatar/{{ .ID }}"><i class="fa fa-camera"></i></a></td>
-                        <td><a href="#"><i class="fa fa-window-close"></i><a></td>
                     </tr>
                     {{end}}
                 </tbody>

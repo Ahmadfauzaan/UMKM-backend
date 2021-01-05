@@ -101,7 +101,6 @@ func FormatTransaction(transaction Transaction) TransactionFormatter {
 	formatter.UserID = transaction.UserID
 	formatter.Amount = transaction.Amount
 	formatter.Status = transaction.Status
-	formatter.Code = transaction.Code
 	formatter.PaymentURL = transaction.PaymentURL
 	return formatter
 }

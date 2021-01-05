@@ -5,7 +5,7 @@ import "time"
 type User struct {
 	ID             int
 	Nama           string
-	Pekerjaan      string
+	PeranUser      string
 	Email          string
 	Telfon         string
 	Npwp           string

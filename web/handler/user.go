@@ -43,7 +43,7 @@ func (h *userHandler) Create(c *gin.Context) {
 	registerInput := user.RegisterUserInput{}
 	registerInput.Nama = input.Nama
 	registerInput.Email = input.Email
-	registerInput.Pekerjaan = input.Pekerjaan
+	registerInput.PeranUser = input.PeranUser
 	registerInput.Password = input.Password
 
 	_, err = h.userService.RegisterUser(registerInput)
@@ -69,7 +69,7 @@ func (h *userHandler) Edit(c *gin.Context) {
 	input.ID = registeredUser.ID
 	input.Nama = registeredUser.Nama
 	input.Email = registeredUser.Email
-	input.Pekerjaan = registeredUser.Pekerjaan
+	input.PeranUser = registeredUser.PeranUser
 
 	c.HTML(http.StatusOK, "user_edit.html", input)
 }
