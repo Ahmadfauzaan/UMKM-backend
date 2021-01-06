@@ -109,7 +109,7 @@ func (s *service) ProcessPayment(input TransactionNotificationInput) error {
 		return err
 	}
 
-	if updatedTransaction.Status == "paid" {
+	if updatedTransaction.Status == "Dana Investasi Sudah Diterima" {
 		campaign.BackerCount = campaign.BackerCount + 1
 		campaign.CurrentAmount = campaign.CurrentAmount + updatedTransaction.Amount
 
